@@ -25,6 +25,7 @@ class TrainerController extends Controller
     public function create()
     {
         //
+        return view('trainers.create');
     }
 
     /**
