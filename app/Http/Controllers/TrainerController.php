@@ -37,6 +37,11 @@ class TrainerController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
+        //return 'Request enviada!!';
+        //return $request->all();
+        //return $request->name;
+        return $request->input('name');
     }
 
     /**
