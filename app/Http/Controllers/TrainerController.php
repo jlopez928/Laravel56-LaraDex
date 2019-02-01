@@ -52,11 +52,24 @@ class TrainerController extends Controller
         //return $request->name;
         //return $request->input('name');
 
+        if($request->hasFile('avatar')){
+            $file = $request->file('avatar');
+            $name = time().$file->getClientOriginalName();
+
+            $file->move(public_path().'/images/', $name);
+
+            //return $name;
+        }        
+
         $trainer = new Trainer();
         $trainer->name = $request->input('name');
+        $trainer->avatar = $name;
         $trainer->save();
 
-        return 'Saved';
+        //return 'Saved';
+
+        return redirect()->route('trainers.index');
+        
     }
 
     /**
