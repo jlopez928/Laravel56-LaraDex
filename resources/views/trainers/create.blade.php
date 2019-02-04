@@ -4,6 +4,8 @@
 
 @section('content')
 
+
+
 {{-- <div class="container">
     <form class="form-group" action="/trainers" method="post" enctype="multipart/form-data">
         {{ @csrf_field() }}
@@ -22,6 +24,17 @@
 
 {{-- Creacion de Trainer con LaravelCollective --}}
 <div class="container">
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ( $errors->all() as $error )
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        
+    @endif
+
     {!! Form::open(['route' => 'trainers.store', 'method' => 'POST', 'files' => true]) !!}
 
         @include('trainers.form')

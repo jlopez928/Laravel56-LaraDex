@@ -52,6 +52,12 @@ class TrainerController extends Controller
         //return $request->name;
         //return $request->input('name');
 
+        $validateData = $request->validate([
+            'name' => 'required|max:10',
+            'avatar' => 'required|image',
+            'slug' => 'required'
+        ]);
+
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
             $name = time().$file->getClientOriginalName();
