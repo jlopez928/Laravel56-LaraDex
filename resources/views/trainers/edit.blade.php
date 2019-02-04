@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container">
+{{-- <div class="container">
     <form class="form-group" action="/trainers/{{ $trainer->slug }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT') 
@@ -19,6 +19,30 @@
     
         <button type="submit" class="btn btn-primary">Actualizar</button>
     </form>
-</div>
+</div> --}}
+
+{{-- Edicion de Trainer con LaravelCollective --}}
+<div class="container">
+        
+        {!! Form::model($trainer, ['route' => ['trainers.update', $trainer], 'method' => 'PUT', 'files' => true]) !!}
+  
+            <div class="form-group">
+                {!! Form::label('name', 'Nombre') !!}
+                {!! Form::text('name', null, ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('slug', 'Slug') !!}
+                {!! Form::text('slug', null, ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('avatar', 'Avatar') !!}
+                {!! Form::file('avatar') !!}
+            </div>
+    
+            
+            {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
+            
+        {!! Form::close() !!}
+    </div>
     
 @endsection
