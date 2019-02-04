@@ -177,8 +177,17 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Trainer $trainer)
     {
         //
+        //return $trainer;
+
+        $file_path = public_path().'/images/'. $trainer->avatar;
+        \File::delete($file_path);
+
+        $trainer->delete();
+
+        return redirect()->route('trainers.index');
+
     }
 }
