@@ -91,14 +91,30 @@ class TrainerController extends Controller
     
     /**
      * Display the specified resource.
-     * Implicit Binding
+     * Con Implicit Binding
      * @param  Trainer  $trainer
      * @return \Illuminate\Http\Response
      * 
      */
-    public function show(Trainer $trainer)
+    /*public function show(Trainer $trainer)
     {
         
+        return view('trainers.show', compact('trainer'));
+        
+    }*/
+    
+    /**
+     * Display the specified resource.
+     * Con Slug
+     * @param  string $slug
+     * @return \Illuminate\Http\Response
+     * 
+     */
+    public function show($slug)
+    {
+        
+        //return $slug;
+        $trainer = Trainer::where('slug','=',$slug)->firstOrFail();
         return view('trainers.show', compact('trainer'));
         
     }
