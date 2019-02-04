@@ -14,7 +14,7 @@ class Trainer extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'avatar',
+        'name', 'avatar'
     ];
 
     /**
