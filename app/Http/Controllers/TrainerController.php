@@ -72,15 +72,34 @@ class TrainerController extends Controller
         
     }
 
-    /**
+     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    /*public function show($id)
     {
-        //
+        
+        $trainer = Trainer::find($id);
+        //dd($trainer);
+        //return $trainer;
+        //return 'tengo que retornar el recurso con id'. $id;
+        return view('trainers.show', compact('trainer'));
+        
+    } */
+    
+    /**
+     * Display the specified resource.
+     * Implicit Binding
+     * @param  Trainer  $trainer
+     * @return \Illuminate\Http\Response
+     * 
+     */
+    public function show(Trainer $trainer)
+    {
+        
+        return view('trainers.show', compact('trainer'));
         
     }
 
