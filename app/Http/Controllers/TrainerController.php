@@ -96,12 +96,12 @@ class TrainerController extends Controller
      * @return \Illuminate\Http\Response
      * 
      */
-    /*public function show(Trainer $trainer)
+    public function show(Trainer $trainer)
     {
         
         return view('trainers.show', compact('trainer'));
         
-    }*/
+    }
     
     /**
      * Display the specified resource.
@@ -110,14 +110,14 @@ class TrainerController extends Controller
      * @return \Illuminate\Http\Response
      * 
      */
-    public function show($slug)
+    /*public function show($slug)
     {
         
         //return $slug;
         $trainer = Trainer::where('slug','=',$slug)->firstOrFail();
         return view('trainers.show', compact('trainer'));
         
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.
