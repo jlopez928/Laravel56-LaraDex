@@ -13,11 +13,17 @@ class TrainerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         //return 'Hola desde el Controlador Trainer Resource';
         //return view('trainers.index');
+
+        //Autorizaciones segun el rol del usuario
+        //$request->user()->authorizeRoles('admin');
+        //$request->user()->authorizeRoles('user');
+        //$request->user()->authorizeRoles(['user','admin']);
+        $request->user()->authorizeRoles(['admin']);
 
         $trainers = Trainer::all();
 
