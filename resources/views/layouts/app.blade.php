@@ -8,6 +8,8 @@
 
     <nav class="navbar navbar-dark bg-primary">
         <a href="#" class="navbar-brand">LaraDex</a>
+        <a href="{{ route('trainers.index') }}" class="navbar-brand">Trainers</a>
+        <a href="{{ route('trainers.create') }}" class="navbar-brand">Nuevo</a>
     </nav>
 
     @yield('content')    

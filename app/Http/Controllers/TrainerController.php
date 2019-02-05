@@ -78,6 +78,7 @@ class TrainerController extends Controller
 
         //return 'Saved';
 
+        //Redireccion a la ruta index una vez guardado un entrenador
         return redirect()->route('trainers.index');
         
     }
@@ -169,6 +170,12 @@ class TrainerController extends Controller
 
         //return 'Updated';
 
+        //return redirect()->route('trainers.show');
+        
+        //Redireccion con parametros a la ruta show una vez editado un entrenador
+        return redirect()->route('trainers.show', [$trainer]);
+        
+
     }
 
     /**
@@ -187,6 +194,7 @@ class TrainerController extends Controller
 
         $trainer->delete();
 
+        //Redireccion a la ruta index una vez borrado un entrenador
         return redirect()->route('trainers.index');
 
     }
