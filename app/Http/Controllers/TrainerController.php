@@ -173,7 +173,7 @@ class TrainerController extends Controller
         //return redirect()->route('trainers.show');
         
         //Redireccion con parametros a la ruta show una vez editado un entrenador
-        return redirect()->route('trainers.show', [$trainer]);
+        return redirect()->route('trainers.show', [$trainer])->with('status','Entrenador actualizado correctamente');
         
 
     }
