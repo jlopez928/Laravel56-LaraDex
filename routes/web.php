@@ -29,6 +29,7 @@ Route::get('prueba/{nombre}', 'PruebaController@prueba');
 
 //Rutas Resource
 Route::resource('trainers', 'TrainerController');
+Route::resource('pokemons', 'PokemonController');
 
 
 
