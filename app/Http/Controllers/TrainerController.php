@@ -23,7 +23,7 @@ class TrainerController extends Controller
         //$request->user()->authorizeRoles('admin');
         //$request->user()->authorizeRoles('user');
         //$request->user()->authorizeRoles(['user','admin']);
-        $request->user()->authorizeRoles(['admin']);
+        $request->user()->authorizeRoles(['admin','user']);
 
         $trainers = Trainer::all();
 
