@@ -19,6 +19,9 @@
 </template>
 
 <script>
+
+    import EventBus from '../event-bus';
+
     export default {
         data() {
             return {
@@ -31,6 +34,11 @@
                 pokemons: [],
                 loading: true
             }
+        },
+        created() {
+            EventBus.$on('pokemon-added', data => {
+                this.pokemons.push(data)
+            })
         },
         mounted() {
             // console.log('Component Pokemons mounted.')

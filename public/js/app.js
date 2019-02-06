@@ -48684,6 +48684,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__event_bus__ = __webpack_require__(69);
 //
 //
 //
@@ -48704,6 +48705,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -48718,14 +48722,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             loading: true
         };
     },
-    mounted: function mounted() {
+    created: function created() {
         var _this = this;
+
+        __WEBPACK_IMPORTED_MODULE_0__event_bus__["a" /* default */].$on('pokemon-added', function (data) {
+            _this.pokemons.push(data);
+        });
+    },
+    mounted: function mounted() {
+        var _this2 = this;
 
         // console.log('Component Pokemons mounted.')
 
         axios.get('http://127.0.0.1:8000/pokemons').then(function (res) {
-            _this.pokemons = res.data;
-            _this.loading = false;
+            _this2.pokemons = res.data;
+            _this2.loading = false;
         });
     }
 });
@@ -49439,7 +49450,7 @@ exports = module.exports = __webpack_require__(46)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49450,6 +49461,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__event_bus__ = __webpack_require__(69);
 //
 //
 //
@@ -49481,6 +49493,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -49496,8 +49511,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 name: this.name,
                 picture: this.picture
             }).then(function (res) {
-                console.log(res);
+                //console.log(res)
                 $('#addPokemon').modal('hide');
+                __WEBPACK_IMPORTED_MODULE_0__event_bus__["a" /* default */].$emit('pokemon-added', res.data.pokemon);
+                //console.log(res.data.pokemon)
             }).catch(function (err) {
                 console.log(err);
             });
@@ -49645,6 +49662,16 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-831b2306", module.exports)
   }
 }
+
+/***/ }),
+/* 69 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+window.Vue = __webpack_require__(36);
+var bus = new Vue();
+
+/* harmony default export */ __webpack_exports__["a"] = (bus);
 
 /***/ })
 /******/ ]);
