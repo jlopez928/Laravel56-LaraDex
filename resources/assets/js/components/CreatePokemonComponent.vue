@@ -10,14 +10,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form @submit.prevent="savePokemon">
                         <div class="form-group">
                             <label>Pokemon</label>
-                            <input type="text" class="form-control" placeholder="Ingresa el nombre del pokemon">
+                            <input type="text" class="form-control" placeholder="Ingresa el nombre del pokemon" v-model="name">
                         </div>
                         <div class="form-group">
                             <label>Picture</label>
-                            <input type="text" class="form-control" placeholder="Ingresa la url de una imagen">
+                            <input type="text" class="form-control" placeholder="Ingresa la url de una imagen" v-model="picture">
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
@@ -32,7 +32,30 @@
 <script>
     export default {
 
-
+        data() {
+            return {
+                name: null,
+                picture: null
+            }
+        },
+        methods: {
+            savePokemon: function() {
+                axios
+                    .post('http://127.0.0.1:8000/pokemons', {
+                        name: this.name,
+                        picture: this.picture
+                    })
+                    .then(function(res) {
+                        console.log(res)
+                        $('#addPokemon').modal('hide')
+                    })
+                    .catch(function(err) {
+                        console.log(err)
+                    });
+                /* console.log(this.name)
+                console.log(this.picture) */
+            }
+        }
         
     }
 </script>
