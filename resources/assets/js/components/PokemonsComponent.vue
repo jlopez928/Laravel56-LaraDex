@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
+            <spinner-component v-show='loading'></spinner-component>
             <div class="col-sm" v-for="pokemon in pokemons">
                 <div class="card text-center" style="width: 18rem; margin-top:50px">
                     <img style="height:100px; width:100px; background-color: #EFEFEF; margin:20px;" class="card-img-top rounded-circle mx-auto d-block" src="/images/" alt="">
@@ -26,13 +27,20 @@
                     { id:3, name: "Charizard"}
                 ] */
 
-                pokemons: []
+                pokemons: [],
+                loading: true
             }
         },
         mounted() {
             // console.log('Component Pokemons mounted.')
 
-            axios.get('http://127.0.0.1:8000/pokemons').then(response => (this.pokemons = response.data))
+            axios
+                .get('http://127.0.0.1:8000/pokemons')
+                .then((res) => {
+                    this.pokemons = res.data
+                    this.loading = false
+                })
+                
             
         }
     }
