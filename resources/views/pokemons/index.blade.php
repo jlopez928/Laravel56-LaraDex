@@ -3,6 +3,7 @@
 @section('content')
 
     {{-- <h1>Hola!</h1> --}}
-    <example-component></example-component>
+    {{-- <example-component></example-component> --}}
+    <pokemons-component></pokemons-component>
 
 @endsection
