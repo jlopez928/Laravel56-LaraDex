@@ -4,8 +4,8 @@
 
     {{-- <h1>Hola!</h1> --}}
     {{-- <example-component></example-component> --}}
-    <add-pokemon-btn></add-pokemon-btn>
-    <pokemons-component></pokemons-component>
+    <modal-button></modal-button>
+    <list-of-pokemons></list-of-pokemons>
     <create-form-pokemon></create-form-pokemon>
 
 @endsection

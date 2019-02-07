@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <spinner-component v-show='loading'></spinner-component>
+            <spinner v-show='loading'></spinner>
             <div class="col-sm" v-for="pokemon in pokemons">
                 <div class="card text-center" style="width: 18rem; margin-top:50px">
                     <img style="height:100px; width:100px; background-color: #EFEFEF; margin:20px;" 
@@ -20,7 +20,7 @@
 
 <script>
 
-    import EventBus from '../event-bus';
+    import EventBus from '../../event-bus';
 
     export default {
         data() {
